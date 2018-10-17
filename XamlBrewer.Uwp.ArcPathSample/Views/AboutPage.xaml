@@ -1,0 +1,57 @@
+﻿<Page x:Class="XamlBrewer.Uwp.ArcPathSample.AboutPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Foreground="{StaticResource PageForegroundBrush}">
+
+    <Grid Background="Transparent"
+          Padding="48 34 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="74" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Foreground="{StaticResource PageTitleBrush}"
+                   FontSize="48"
+                   FontWeight="Light"
+                   HorizontalAlignment="Left"
+                   Margin="6 0 0 0"
+                   TextLineBounds="TrimToCapHeight"
+                   FontFamily="Segoe UI">
+                <Run Text="About" />
+        </TextBlock>
+
+        <Path Data="{StaticResource InfoIcon}"
+              Fill="{StaticResource PageTitleBrush}"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Right"
+              Height="48"
+              Width="48"
+              Margin="0 0 20 0"
+              Stretch="Uniform" />
+        <TextBlock TextWrapping="WrapWholeWords"
+                   Foreground="{StaticResource PageForegroundBrush}"
+                   FontSize="20"
+                   Grid.Row="1"
+                   Margin="0">
+            <Run>This app demonstrates how to add accessibility features to a UWP custom control: </Run>
+            <LineBreak />
+            <Run>* Narrator support, and</Run>
+            <LineBreak />
+            <Run>* High Contrast themes support.</Run>
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <Run>Background image designed by </Run>
+            <Hyperlink NavigateUri="http://www.freepik.com">Yurlick / Freepik</Hyperlink>
+            <Run>.</Run>
+            <LineBreak />
+            <LineBreak />
+            <Run>Radial Gauge source from </Run>
+            <Hyperlink NavigateUri="https://github.com/windows-toolkit/WindowsCommunityToolkit">Windows Community Toolkit</Hyperlink>
+            <Run>.</Run>            
+        </TextBlock>
+    </Grid>
+</Page>
