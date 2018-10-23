@@ -7,7 +7,7 @@
     <!-- Theme Resources -->
 
     <!-- Default Accent Color -->
-    <Color x:Key="DefaultAccentColor">Goldenrod</Color>
+    <Color x:Key="DefaultAccentColor">#FFFFF380</Color>
 
     <!-- General Purpose -->
     <SolidColorBrush x:Key="DarkeningBrush"

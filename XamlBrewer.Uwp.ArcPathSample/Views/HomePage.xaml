@@ -3,8 +3,6 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:local="using:XamlBrewer.Uwp.ArcPathSample"
-      xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
       mc:Ignorable="d"
       Foreground="{StaticResource PageForegroundBrush}"
       FontFamily="Segoe UI">
@@ -13,8 +11,8 @@
           Padding="48 34 0 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="74" />
-            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="74" />
         </Grid.RowDefinitions>
 
         <!-- Title -->
@@ -25,7 +23,7 @@
                    Margin="6 0 0 0"
                    TextLineBounds="TrimToCapHeight"
                    FontFamily="Segoe UI">
-                <Run Text="Bindable Arc" />
+                <Run Text="Home" />
         </TextBlock>
         <Path Data="{StaticResource HomeIcon}"
               Fill="{StaticResource PageTitleBrush}"
@@ -35,12 +33,5 @@
               Width="48"
               Margin="0 0 20 0"
               Stretch="Uniform" />
-
-        <!-- Main Beef -->
-        <Grid VerticalAlignment="Top"
-              Grid.Row="2">
-
-        </Grid>
-
     </Grid>
 </Page>
