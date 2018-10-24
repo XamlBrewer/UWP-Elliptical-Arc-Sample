@@ -33,5 +33,24 @@
               Width="48"
               Margin="0 0 20 0"
               Stretch="Uniform" />
+        <Grid Margin="0 0 48 33"
+              Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock TextWrapping="WrapWholeWords"
+                       Foreground="{StaticResource PageForegroundBrush}"
+                       FontSize="20"
+                       Grid.Row="1"
+                       Margin="0">
+                <Run>This app shows two ways to draw and change an elliptical arc in UWP: </Run>
+                <LineBreak />
+                <Run>* using {x:Bind} against a XAML ArcSegment, and</Run>
+                <LineBreak />
+                <Run>* {Binding} to a user control hosting Win2D and Composition. </Run>
+            </TextBlock>
+        </Grid>
     </Grid>
 </Page>

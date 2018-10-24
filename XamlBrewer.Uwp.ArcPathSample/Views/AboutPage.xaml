@@ -31,27 +31,31 @@
               Width="48"
               Margin="0 0 20 0"
               Stretch="Uniform" />
-        <TextBlock TextWrapping="WrapWholeWords"
-                   Foreground="{StaticResource PageForegroundBrush}"
-                   FontSize="20"
-                   Grid.Row="1"
-                   Margin="0">
-            <Run>This app demonstrates how to add accessibility features to a UWP custom control: </Run>
+        
+        <Grid Margin="0 0 48 33"
+              Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock TextWrapping="WrapWholeWords"
+                       Foreground="{StaticResource PageForegroundBrush}"
+                       FontSize="20"
+                       Grid.Row="1"
+                       Margin="0">
+            <Run>This app shows two ways to draw and change an elliptical arc in UWP: </Run>
             <LineBreak />
-            <Run>* Narrator support, and</Run>
+            <Run>* using {x:Bind} against a XAML ArcSegment, and</Run>
             <LineBreak />
-            <Run>* High Contrast themes support.</Run>
+            <Run>* {Binding} to a user control hosting Win2D and Composition. </Run>
             <LineBreak />
             <LineBreak />
             <LineBreak />
             <Run>Background image designed by </Run>
-            <Hyperlink NavigateUri="http://www.freepik.com">Yurlick / Freepik</Hyperlink>
+            <Hyperlink NavigateUri="http://www.freepik.com">Harryarts / Freepik</Hyperlink>
             <Run>.</Run>
-            <LineBreak />
-            <LineBreak />
-            <Run>Radial Gauge source from </Run>
-            <Hyperlink NavigateUri="https://github.com/windows-toolkit/WindowsCommunityToolkit">Windows Community Toolkit</Hyperlink>
-            <Run>.</Run>            
-        </TextBlock>
+            </TextBlock>
+        </Grid>
     </Grid>
 </Page>

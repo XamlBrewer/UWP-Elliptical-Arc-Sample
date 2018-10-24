@@ -15,7 +15,7 @@ namespace XamlBrewer.Uwp.ArcPathSample.ViewModels
         private double _rotationAngle = 0;
         private int _endPointX = 0;
         private int _endPointY = 0;
-        private bool _isClockWise = false;
+        private bool _isClockwise = false;
         private bool _isLargeArc = false;
         private double _strokeThickness = 1;
         private Brush _stroke = new SolidColorBrush((Color)Application.Current.Resources["SystemAccentColor"]);
@@ -92,17 +92,17 @@ namespace XamlBrewer.Uwp.ArcPathSample.ViewModels
             set { SetProperty(ref _rotationAngle, value); }
         }
 
-        public bool IsClockWise
+        public bool IsClockwise
         {
-            get { return _isClockWise; }
+            get { return _isClockwise; }
             set
             {
-                SetProperty(ref _isClockWise, value);
+                SetProperty(ref _isClockwise, value);
                 OnPropertyChanged(nameof(SweepDirection));
             }
         }
 
-        public SweepDirection SweepDirection => _isClockWise ? SweepDirection.Clockwise : SweepDirection.Counterclockwise;
+        public SweepDirection SweepDirection => _isClockwise ? SweepDirection.Clockwise : SweepDirection.Counterclockwise;
 
         public bool IsLargeArc
         {

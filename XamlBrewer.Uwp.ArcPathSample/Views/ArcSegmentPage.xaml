@@ -3,11 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:local="using:XamlBrewer.Uwp.ArcPathSample"
-      xmlns:foundation="using:Windows.Foundation"
       mc:Ignorable="d"
-      Foreground="{StaticResource PageForegroundBrush}"
-      FontFamily="Segoe UI">
+      Foreground="{StaticResource PageForegroundBrush}">
 
     <Grid Background="Transparent"
           Padding="48 34 0 0">
@@ -25,10 +22,9 @@
                    Margin="6 0 0 0"
                    TextLineBounds="TrimToCapHeight"
                    FontFamily="Segoe UI">
-                <Run Text="x:Bind to ArcSegment"
-                     FontFamily="Segoe UI" />
+                <Run Text="x:Bind to ArcSegment" />
         </TextBlock>
-        <Path Data="{StaticResource CodeIcon}"
+        <Path Data="{StaticResource TopLayerIcon}"
               Fill="{StaticResource PageTitleBrush}"
               VerticalAlignment="Top"
               HorizontalAlignment="Right"
@@ -117,13 +113,21 @@
                 <StackPanel VerticalAlignment="Top"
                             Grid.Column="2">
                     <ToggleSwitch Header="Sweep Direction"
-                                  IsOn="{x:Bind ViewModel.IsClockWise, Mode=TwoWay}"
+                                  IsOn="{x:Bind ViewModel.IsClockwise, Mode=TwoWay}"
                                   OnContent="Clockwise"
                                   OffContent="Counterclockwise" />
                     <ToggleSwitch Header="Large Arc"
                                   IsOn="{x:Bind ViewModel.IsLargeArc, Mode=TwoWay}"
                                   OnContent="Yes"
                                   OffContent="No" />
+                    <ToggleSwitch Header="Closed"
+                                  IsOn="{x:Bind ViewModel.IsClockwise, Mode=TwoWay}"
+                                  OnContent="Yes"
+                                  OffContent="No" />
+                    <Slider Header="Stroke Thickness"
+                            Value="{x:Bind ViewModel.StrokeThickness, Mode=TwoWay}"
+                            Maximum="20"
+                            StepFrequency=".5" />
                 </StackPanel>
             </Grid>
         </Grid>

@@ -28,7 +28,7 @@
                 <Run Text="Draw with Win2D"
                      FontFamily="Segoe UI" />
         </TextBlock>
-        <Path Data="{StaticResource CodeIcon}"
+        <Path Data="{StaticResource MiddleLayerIcon}"
               Fill="{StaticResource PageTitleBrush}"
               VerticalAlignment="Top"
               HorizontalAlignment="Right"
@@ -101,13 +101,21 @@
                 <StackPanel VerticalAlignment="Top"
                             Grid.Column="2">
                     <ToggleSwitch Header="Sweep Direction"
-                                  IsOn="{x:Bind ViewModel.IsClockWise, Mode=TwoWay}"
+                                  IsOn="{Binding IsClockwise, ElementName=EllipticalArc, Mode=TwoWay}"
                                   OnContent="Clockwise"
                                   OffContent="Counterclockwise" />
                     <ToggleSwitch Header="Large Arc"
-                                  IsOn="{x:Bind ViewModel.IsLargeArc, Mode=TwoWay}"
+                                  IsOn="{Binding IsLargeArc, ElementName=EllipticalArc, Mode=TwoWay}"
                                   OnContent="Yes"
                                   OffContent="No" />
+                    <ToggleSwitch Header="Closed"
+                                  IsOn="{Binding IsClosed, ElementName=EllipticalArc, Mode=TwoWay}"
+                                  OnContent="Yes"
+                                  OffContent="No" />                    
+                    <Slider Header="Stroke Thickness"
+                            Value="{Binding StrokeThickness, ElementName=EllipticalArc, Mode=TwoWay}"
+                            Maximum="20"
+                            StepFrequency=".5" />
                 </StackPanel>
             </Grid>
         </Grid>

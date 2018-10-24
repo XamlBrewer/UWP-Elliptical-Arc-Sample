@@ -41,6 +41,15 @@ namespace XamlBrewer.Uwp.Controls
         public static readonly DependencyProperty FillProperty =
             DependencyProperty.Register(nameof(Fill), typeof(Color), typeof(EllipticalArc), new PropertyMetadata(Colors.Transparent, Render));
 
+        public static readonly DependencyProperty IsClockwiseProperty =
+            DependencyProperty.Register(nameof(IsClockwise), typeof(bool), typeof(EllipticalArc), new PropertyMetadata(false, Render));
+
+        public static readonly DependencyProperty IsLargeArcProperty =
+            DependencyProperty.Register(nameof(IsLargeArc), typeof(bool), typeof(EllipticalArc), new PropertyMetadata(false, Render));
+
+        public static readonly DependencyProperty IsClosedProperty =
+            DependencyProperty.Register(nameof(IsClosed), typeof(bool), typeof(EllipticalArc), new PropertyMetadata(false, Render));
+
         public int StartPointX
         {
             get { return (int)GetValue(StartPointXProperty); }
@@ -101,6 +110,24 @@ namespace XamlBrewer.Uwp.Controls
             set { SetValue(FillProperty, value); }
         }
 
+        public bool IsClockwise
+        {
+            get { return (bool)GetValue(IsClockwiseProperty); }
+            set { SetValue(IsClockwiseProperty, value); }
+        }
+
+        public bool IsLargeArc
+        {
+            get { return (bool)GetValue(IsLargeArcProperty); }
+            set { SetValue(IsLargeArcProperty, value); }
+        }
+
+        public bool IsClosed
+        {
+            get { return (bool)GetValue(IsClosedProperty); }
+            set { SetValue(IsClosedProperty, value); }
+        }
+
         public EllipticalArc()
         {
             this.InitializeComponent();
@@ -123,21 +150,22 @@ namespace XamlBrewer.Uwp.Controls
         private static void Render(DependencyObject d, DependencyPropertyChangedEventArgs args)
         {
             var arc = (EllipticalArc)d;
-
             var root = arc.Container.GetVisual();
             var compositor = Window.Current.Compositor;
             var canvasPathBuilder = new CanvasPathBuilder(new CanvasDevice());
 
+            // Figure
             canvasPathBuilder.BeginFigure(new Vector2(arc.StartPointX, arc.StartPointY));
             canvasPathBuilder.AddArc(
                 new Vector2(arc.EndPointX, arc.EndPointY),
                 arc.RadiusX,
                 arc.RadiusY,
                 (float)(arc.RotationAngle * Math.PI / 180),
-                CanvasSweepDirection.CounterClockwise,
-                CanvasArcSize.Small);
-            canvasPathBuilder.EndFigure(CanvasFigureLoop.Open);
+                arc.IsClockwise ? CanvasSweepDirection.Clockwise : CanvasSweepDirection.CounterClockwise,
+                arc.IsLargeArc ? CanvasArcSize.Large : CanvasArcSize.Small);
+            canvasPathBuilder.EndFigure(arc.IsClosed ? CanvasFigureLoop.Closed : CanvasFigureLoop.Open);
 
+            // Path
             var canvasGeometry = CanvasGeometry.CreatePath(canvasPathBuilder);
             var compositionPath = new CompositionPath(canvasGeometry);
             var pathGeometry = compositor.CreatePathGeometry();
@@ -146,13 +174,11 @@ namespace XamlBrewer.Uwp.Controls
             spriteShape.FillBrush = compositor.CreateColorBrush(arc.Fill);
             spriteShape.StrokeThickness = (float)arc.StrokeThickness;
             spriteShape.StrokeBrush = compositor.CreateColorBrush(arc.Stroke);
-            //_secondhandSpriteShape.Offset = new Vector2(97.0f, 20.0f);
-            //_secondhandSpriteShape.CenterPoint = new Vector2(3.0f, 80.0f);
 
+            // Visual
             var shapeVisual = compositor.CreateShapeVisual();
-            shapeVisual.Size = new Vector2(400.0f, 400.0f);
+            shapeVisual.Size = new Vector2((float)arc.Container.ActualWidth, (float)arc.Container.ActualHeight);
             shapeVisual.Shapes.Add(spriteShape);
-
             root.Children.RemoveAll();
             root.Children.InsertAtTop(shapeVisual);
         }
