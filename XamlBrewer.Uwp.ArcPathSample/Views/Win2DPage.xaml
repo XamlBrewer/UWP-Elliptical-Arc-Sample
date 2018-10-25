@@ -79,27 +79,15 @@
                     <Slider Header="Startpoint X"
                             Value="{Binding StartPointX, ElementName=EllipticalArc, Mode=TwoWay}"
                             Maximum="400" />
-                    <Slider Header="Startpoint Y"
-                            Value="{Binding StartPointY, ElementName=EllipticalArc, Mode=TwoWay}"
+                    <Slider Header="Endpoint X"
+                            Value="{Binding EndPointX, ElementName=EllipticalArc, Mode=TwoWay}"
                             Maximum="400" />
                     <Slider Header="Radius X"
                             Value="{Binding RadiusX, ElementName=EllipticalArc, Mode=TwoWay}"
                             Maximum="200" />
-                    <Slider Header="Radius Y"
-                            Value="{Binding RadiusY, ElementName=EllipticalArc, Mode=TwoWay}"
-                            Maximum="200" />
                     <Slider Header="Rotation Angle"
                             Value="{Binding RotationAngle, ElementName=EllipticalArc, Mode=TwoWay}"
                             Maximum="360" />
-                    <Slider Header="Endpoint X"
-                            Value="{Binding EndPointX, ElementName=EllipticalArc, Mode=TwoWay}"
-                            Maximum="400" />
-                    <Slider Header="Endpoint Y"
-                            Value="{Binding EndPointY, ElementName=EllipticalArc, Mode=TwoWay}"
-                            Maximum="400" />
-                </StackPanel>
-                <StackPanel VerticalAlignment="Top"
-                            Grid.Column="2">
                     <ToggleSwitch Header="Sweep Direction"
                                   IsOn="{Binding IsClockwise, ElementName=EllipticalArc, Mode=TwoWay}"
                                   OnContent="Clockwise"
@@ -108,14 +96,30 @@
                                   IsOn="{Binding IsLargeArc, ElementName=EllipticalArc, Mode=TwoWay}"
                                   OnContent="Yes"
                                   OffContent="No" />
-                    <ToggleSwitch Header="Closed"
-                                  IsOn="{Binding IsClosed, ElementName=EllipticalArc, Mode=TwoWay}"
-                                  OnContent="Yes"
-                                  OffContent="No" />                    
+                </StackPanel>
+                <StackPanel VerticalAlignment="Top"
+                            Grid.Column="2">
+                    <Slider Header="Startpoint Y"
+                            Value="{Binding StartPointY, ElementName=EllipticalArc, Mode=TwoWay}"
+                            Maximum="400" />
+                    <Slider Header="Endpoint Y"
+                            Value="{Binding EndPointY, ElementName=EllipticalArc, Mode=TwoWay}"
+                            Maximum="400" />
+                    <Slider Header="Radius Y"
+                            Value="{Binding RadiusY, ElementName=EllipticalArc, Mode=TwoWay}"
+                            Maximum="200" />
                     <Slider Header="Stroke Thickness"
                             Value="{Binding StrokeThickness, ElementName=EllipticalArc, Mode=TwoWay}"
                             Maximum="20"
                             StepFrequency=".5" />
+                    <ToggleSwitch Header="Closed"
+                                  IsOn="{Binding IsClosed, ElementName=EllipticalArc, Mode=TwoWay}"
+                                  OnContent="Yes"
+                                  OffContent="No" />
+                    <ToggleSwitch Header="Rounded Stroke"
+                                  IsOn="{Binding IsStrokeRounded, ElementName=EllipticalArc, Mode=TwoWay}"
+                                  OnContent="Yes"
+                                  OffContent="No" />
                 </StackPanel>
             </Grid>
         </Grid>

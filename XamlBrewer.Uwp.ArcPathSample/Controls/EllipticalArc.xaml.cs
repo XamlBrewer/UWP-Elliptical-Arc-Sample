@@ -50,6 +50,9 @@ namespace XamlBrewer.Uwp.Controls
         public static readonly DependencyProperty IsClosedProperty =
             DependencyProperty.Register(nameof(IsClosed), typeof(bool), typeof(EllipticalArc), new PropertyMetadata(false, Render));
 
+        public static readonly DependencyProperty IsStrokeRoundedProperty =
+            DependencyProperty.Register(nameof(IsStrokeRounded), typeof(bool), typeof(EllipticalArc), new PropertyMetadata(false, Render));
+
         public int StartPointX
         {
             get { return (int)GetValue(StartPointXProperty); }
@@ -128,6 +131,12 @@ namespace XamlBrewer.Uwp.Controls
             set { SetValue(IsClosedProperty, value); }
         }
 
+        public bool IsStrokeRounded
+        {
+            get { return (bool)GetValue(IsStrokeRoundedProperty); }
+            set { SetValue(IsStrokeRoundedProperty, value); }
+        }
+
         public EllipticalArc()
         {
             this.InitializeComponent();
@@ -174,6 +183,8 @@ namespace XamlBrewer.Uwp.Controls
             spriteShape.FillBrush = compositor.CreateColorBrush(arc.Fill);
             spriteShape.StrokeThickness = (float)arc.StrokeThickness;
             spriteShape.StrokeBrush = compositor.CreateColorBrush(arc.Stroke);
+            spriteShape.StrokeStartCap = arc.IsStrokeRounded ? CompositionStrokeCap.Round : CompositionStrokeCap.Flat;
+            spriteShape.StrokeEndCap = arc.IsStrokeRounded ? CompositionStrokeCap.Round : CompositionStrokeCap.Flat;
 
             // Visual
             var shapeVisual = compositor.CreateShapeVisual();

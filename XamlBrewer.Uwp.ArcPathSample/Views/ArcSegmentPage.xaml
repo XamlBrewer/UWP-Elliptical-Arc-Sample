@@ -64,7 +64,9 @@
                     <Path Stroke="{x:Bind ViewModel.Stroke, Mode=OneWay}"
                           Height="400"
                           Width="400"
-                          StrokeThickness="{x:Bind ViewModel.StrokeThickness, Mode=OneWay}">
+                          StrokeThickness="{x:Bind ViewModel.StrokeThickness, Mode=OneWay}"
+                          StrokeStartLineCap="{x:Bind ViewModel.StrokeLineCap, Mode=OneWay}"
+                          StrokeEndLineCap="{x:Bind ViewModel.StrokeLineCap, Mode=OneWay}">
                         <Path.Data>
                             <PathGeometry>
                                 <PathGeometry.Figures>
@@ -91,27 +93,15 @@
                     <Slider Header="Startpoint X"
                             Value="{x:Bind ViewModel.StartPointX, Mode=TwoWay}"
                             Maximum="400" />
-                    <Slider Header="Startpoint Y"
-                            Value="{x:Bind ViewModel.StartPointY, Mode=TwoWay}"
+                    <Slider Header="Endpoint X"
+                            Value="{x:Bind ViewModel.EndPointX, Mode=TwoWay}"
                             Maximum="400" />
                     <Slider Header="Radius X"
                             Value="{x:Bind ViewModel.RadiusX, Mode=TwoWay}"
                             Maximum="200" />
-                    <Slider Header="Radius Y"
-                            Value="{x:Bind ViewModel.RadiusY, Mode=TwoWay}"
-                            Maximum="200" />
                     <Slider Header="Rotation Angle"
                             Value="{x:Bind ViewModel.RotationAngle, Mode=TwoWay}"
                             Maximum="360" />
-                    <Slider Header="Endpoint X"
-                            Value="{x:Bind ViewModel.EndPointX, Mode=TwoWay}"
-                            Maximum="400" />
-                    <Slider Header="Endpoint Y"
-                            Value="{x:Bind ViewModel.EndPointY, Mode=TwoWay}"
-                            Maximum="400" />
-                </StackPanel>
-                <StackPanel VerticalAlignment="Top"
-                            Grid.Column="2">
                     <ToggleSwitch Header="Sweep Direction"
                                   IsOn="{x:Bind ViewModel.IsClockwise, Mode=TwoWay}"
                                   OnContent="Clockwise"
@@ -120,14 +110,30 @@
                                   IsOn="{x:Bind ViewModel.IsLargeArc, Mode=TwoWay}"
                                   OnContent="Yes"
                                   OffContent="No" />
-                    <ToggleSwitch Header="Closed"
-                                  IsOn="{x:Bind ViewModel.IsClockwise, Mode=TwoWay}"
-                                  OnContent="Yes"
-                                  OffContent="No" />
+                </StackPanel>
+                <StackPanel VerticalAlignment="Top"
+                            Grid.Column="2">
+                    <Slider Header="Startpoint Y"
+                            Value="{x:Bind ViewModel.StartPointY, Mode=TwoWay}"
+                            Maximum="400" />
+                    <Slider Header="Endpoint Y"
+                            Value="{x:Bind ViewModel.EndPointY, Mode=TwoWay}"
+                            Maximum="400" />
+                    <Slider Header="Radius Y"
+                            Value="{x:Bind ViewModel.RadiusY, Mode=TwoWay}"
+                            Maximum="200" />
                     <Slider Header="Stroke Thickness"
                             Value="{x:Bind ViewModel.StrokeThickness, Mode=TwoWay}"
                             Maximum="20"
                             StepFrequency=".5" />
+                    <ToggleSwitch Header="Closed"
+                                  IsOn="{x:Bind ViewModel.IsClockwise, Mode=TwoWay}"
+                                  OnContent="Yes"
+                                  OffContent="No" />
+                    <ToggleSwitch Header="Rounded Stroke"
+                                  IsOn="{x:Bind ViewModel.IsStrokeRounded, Mode=TwoWay}"
+                                  OnContent="Yes"
+                                  OffContent="No" />
                 </StackPanel>
             </Grid>
         </Grid>

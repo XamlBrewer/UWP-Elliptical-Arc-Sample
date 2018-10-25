@@ -19,6 +19,7 @@ namespace XamlBrewer.Uwp.ArcPathSample.ViewModels
         private bool _isLargeArc = false;
         private double _strokeThickness = 1;
         private Brush _stroke = new SolidColorBrush((Color)Application.Current.Resources["SystemAccentColor"]);
+        private bool _isStrokeRounded = false;
 
         public int RadiusX
         {
@@ -121,5 +122,17 @@ namespace XamlBrewer.Uwp.ArcPathSample.ViewModels
             get { return _stroke; }
             set { SetProperty(ref _stroke, value); }
         }
+
+        public bool IsStrokeRounded
+        {
+            get { return _isStrokeRounded; }
+            set
+            {
+                SetProperty(ref _isStrokeRounded, value);
+                OnPropertyChanged(nameof(StrokeLineCap));
+            }
+        }
+
+        public PenLineCap StrokeLineCap => _isStrokeRounded ? PenLineCap.Round : PenLineCap.Flat;
     }
 }
