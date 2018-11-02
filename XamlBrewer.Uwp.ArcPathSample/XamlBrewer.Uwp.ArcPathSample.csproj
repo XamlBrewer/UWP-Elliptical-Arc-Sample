@@ -95,9 +95,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CompositionPathHost.xaml.cs">
+      <DependentUpon>CompositionPathHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\EllipticalArc.xaml.cs">
       <DependentUpon>EllipticalArc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\RingSegment.cs" />
     <Compile Include="Controls\UIElementExtensions.cs" />
     <Compile Include="Mvvm\BindableBase.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
@@ -113,6 +117,9 @@
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CircleSegmentPage.xaml.cs">
+      <DependentUpon>CircleSegmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Win2DPage.xaml.cs">
       <DependentUpon>Win2DPage.xaml</DependentUpon>
@@ -149,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\CompositionPathHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\EllipticalArc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +173,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AboutPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CircleSegmentPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

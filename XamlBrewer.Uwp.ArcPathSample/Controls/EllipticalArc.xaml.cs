@@ -159,6 +159,11 @@ namespace XamlBrewer.Uwp.Controls
         private static void Render(DependencyObject d, DependencyPropertyChangedEventArgs args)
         {
             var arc = (EllipticalArc)d;
+            if (arc.Container.ActualWidth == 0)
+            {
+                return;
+            }
+
             var root = arc.Container.GetVisual();
             var compositor = Window.Current.Compositor;
             var canvasPathBuilder = new CanvasPathBuilder(new CanvasDevice());

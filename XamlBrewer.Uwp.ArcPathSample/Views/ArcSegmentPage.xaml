@@ -91,7 +91,7 @@
                 <StackPanel VerticalAlignment="Top"
                             Grid.Column="1">
                     <Slider Header="Startpoint X"
-                            Value="{x:Bind ViewModel.StartPointX, Mode=TwoWay}"
+                            Value="{x:Bind ViewModel.StartPointX, Mode=TwoWay}" LargeChange="40"
                             Maximum="400" />
                     <Slider Header="Endpoint X"
                             Value="{x:Bind ViewModel.EndPointX, Mode=TwoWay}"

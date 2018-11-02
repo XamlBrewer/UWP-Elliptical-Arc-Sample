@@ -1,0 +1,103 @@
+﻿<Page x:Class="XamlBrewer.Uwp.ArcPathSample.CircleSegmentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:controls="using:XamlBrewer.Uwp.Controls"
+      mc:Ignorable="d"
+      Foreground="{StaticResource PageForegroundBrush}"
+      FontFamily="Segoe UI">
+
+    <Grid Background="Transparent"
+          Padding="48 34 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="74" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="74" />
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Foreground="{StaticResource PageTitleBrush}"
+                   FontSize="48"
+                   FontWeight="Light"
+                   HorizontalAlignment="Left"
+                   Margin="6 0 0 0"
+                   TextLineBounds="TrimToCapHeight"
+                   FontFamily="Segoe UI">
+                <Run Text="Ring Segment Control" />
+        </TextBlock>
+        <Path Data="{StaticResource DonutIcon}"
+              Fill="{StaticResource PageTitleBrush}"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Right"
+              Height="48"
+              Width="48"
+              Margin="0 0 20 0"
+              Stretch="Uniform" />
+
+        <!-- Main Beef -->
+        <Grid Margin="0 0 48 33"
+              Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid ColumnSpacing="20"
+                  Grid.Row="1"
+                  Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Background="{StaticResource LighteningBrush}"
+                      Height="400"
+                      Width="400">
+                    <controls:RingSegment x:Name="RingSegment"
+                                          Radius="100"
+                                          IsPie="True"
+                                          CenterPointX="200"
+                                          CenterPointY="200"
+                                          StartAngle="60"
+                                          SweepAngle="90"
+                                          Fill="Maroon"
+                                          Height="400"
+                                          Width="400" />
+                </Grid>
+                <StackPanel VerticalAlignment="Top"
+                                Grid.Column="1">
+                        <Slider Header="Startpoint Y"
+                                Value="{Binding CenterPointX, ElementName=RingSegment, Mode=TwoWay}"
+                                Maximum="400" />
+                        <Slider Header="Endpoint Y"
+                                Value="{Binding CenterPointY, ElementName=RingSegment, Mode=TwoWay}"
+                                Maximum="400" />
+                        <Slider Header="Radius Y"
+                                Value="{Binding Radius, ElementName=RingSegment, Mode=TwoWay}"
+                                Maximum="200"
+                                FontFamily="Segoe UI" />
+                        <Slider Header="Stroke Thickness"
+                                Value="{Binding StrokeThickness, ElementName=RingSegment, Mode=TwoWay}"
+                                Maximum="20"
+                                StepFrequency=".5" />
+                        <ToggleSwitch Header="Pie"
+                                      IsOn="{Binding IsPie, ElementName=RingSegment, Mode=TwoWay}"
+                                      OnContent="Yes"
+                                      OffContent="No" />
+                        <ToggleSwitch Header="Rounded Stroke"
+                                      IsOn="{Binding IsStrokeRounded, ElementName=RingSegment, Mode=TwoWay}"
+                                      OnContent="Yes"
+                                      OffContent="No" />
+                    </StackPanel>
+       
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
