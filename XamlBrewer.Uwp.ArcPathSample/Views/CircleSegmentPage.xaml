@@ -55,6 +55,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <Grid Background="{StaticResource LighteningBrush}"
@@ -67,36 +68,48 @@
                                           CenterPointY="200"
                                           StartAngle="60"
                                           SweepAngle="90"
-                                          Fill="Maroon"
                                           Height="400"
                                           Width="400" />
                 </Grid>
                 <StackPanel VerticalAlignment="Top"
-                                Grid.Column="1">
-                        <Slider Header="Startpoint Y"
-                                Value="{Binding CenterPointX, ElementName=RingSegment, Mode=TwoWay}"
-                                Maximum="400" />
-                        <Slider Header="Endpoint Y"
-                                Value="{Binding CenterPointY, ElementName=RingSegment, Mode=TwoWay}"
-                                Maximum="400" />
-                        <Slider Header="Radius Y"
-                                Value="{Binding Radius, ElementName=RingSegment, Mode=TwoWay}"
-                                Maximum="200"
-                                FontFamily="Segoe UI" />
-                        <Slider Header="Stroke Thickness"
-                                Value="{Binding StrokeThickness, ElementName=RingSegment, Mode=TwoWay}"
-                                Maximum="20"
-                                StepFrequency=".5" />
-                        <ToggleSwitch Header="Pie"
-                                      IsOn="{Binding IsPie, ElementName=RingSegment, Mode=TwoWay}"
-                                      OnContent="Yes"
-                                      OffContent="No" />
-                        <ToggleSwitch Header="Rounded Stroke"
-                                      IsOn="{Binding IsStrokeRounded, ElementName=RingSegment, Mode=TwoWay}"
-                                      OnContent="Yes"
-                                      OffContent="No" />
-                    </StackPanel>
-       
+                            Grid.Column="1">
+                    <Slider Header="Centerpoint X"
+                            Value="{Binding CenterPointX, ElementName=RingSegment, Mode=TwoWay}"
+                            Maximum="400" />
+                    <Slider Header="Radius"
+                            Value="{Binding Radius, ElementName=RingSegment, Mode=TwoWay}"
+                            Maximum="200"
+                            FontFamily="Segoe UI" />
+                    <Slider Header="Start angle"
+                            Value="{Binding StartAngle, ElementName=RingSegment, Mode=TwoWay}"
+                            Maximum="360" />
+                    <ToggleSwitch Header="Closed"
+                                  IsOn="{Binding IsClosed, ElementName=RingSegment, Mode=TwoWay}"
+                                  OnContent="Yes"
+                                  OffContent="No" />
+                    <ToggleSwitch Header="Rounded Stroke"
+                                  IsOn="{Binding IsStrokeRounded, ElementName=RingSegment, Mode=TwoWay}"
+                                  OnContent="Yes"
+                                  OffContent="No" />
+                </StackPanel>
+                <StackPanel VerticalAlignment="Top"
+                            Grid.Column="2">
+                    <Slider Header="Centerpoint Y"
+                            Value="{Binding CenterPointY, ElementName=RingSegment, Mode=TwoWay}"
+                            Maximum="400" />
+                    <Slider Header="Stroke Thickness"
+                            Value="{Binding StrokeThickness, ElementName=RingSegment, Mode=TwoWay}"
+                            Maximum="40"
+                            StepFrequency=".5" />
+                    <Slider Header="Sweep angle"
+                            Value="{Binding SweepAngle, ElementName=RingSegment, Mode=TwoWay}"
+                            Maximum="360" />
+                    <ToggleSwitch Header="Pie"
+                                  IsOn="{Binding IsPie, ElementName=RingSegment, Mode=TwoWay}"
+                                  OnContent="Yes"
+                                  OffContent="No" />
+                </StackPanel>
+
             </Grid>
         </Grid>
     </Grid>

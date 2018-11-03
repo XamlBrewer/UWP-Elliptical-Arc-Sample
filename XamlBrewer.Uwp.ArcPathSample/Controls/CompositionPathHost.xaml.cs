@@ -7,10 +7,10 @@ namespace XamlBrewer.Uwp.Controls
     public abstract partial class CompositionPathHost : UserControl
     {
         public static readonly DependencyProperty StartPointXProperty =
-            DependencyProperty.Register(nameof(StartPointX), typeof(int), typeof(RingSegment), new PropertyMetadata(0, new PropertyChangedCallback(Render)));
+            DependencyProperty.Register(nameof(StartPointX), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, new PropertyChangedCallback(Render)));
 
         public static readonly DependencyProperty StartPointYProperty =
-            DependencyProperty.Register(nameof(StartPointY), typeof(int), typeof(RingSegment), new PropertyMetadata(0, Render));
+            DependencyProperty.Register(nameof(StartPointY), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, Render));
 
         public static readonly DependencyProperty StrokeThicknessProperty =
             DependencyProperty.Register(nameof(StrokeThickness), typeof(double), typeof(RingSegment), new PropertyMetadata(1.0, Render));
@@ -27,15 +27,15 @@ namespace XamlBrewer.Uwp.Controls
         public static readonly DependencyProperty IsStrokeRoundedProperty =
             DependencyProperty.Register(nameof(IsStrokeRounded), typeof(bool), typeof(RingSegment), new PropertyMetadata(false, Render));
 
-        public int StartPointX
+        public double StartPointX
         {
-            get { return (int)GetValue(StartPointXProperty); }
+            get { return (double)GetValue(StartPointXProperty); }
             set { SetValue(StartPointXProperty, value); }
         }
 
-        public int StartPointY
+        public double StartPointY
         {
-            get { return (int)GetValue(StartPointYProperty); }
+            get { return (double)GetValue(StartPointYProperty); }
             set { SetValue(StartPointYProperty, value); }
         }
 

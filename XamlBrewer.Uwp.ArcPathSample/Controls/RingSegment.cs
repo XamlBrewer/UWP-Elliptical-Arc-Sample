@@ -10,13 +10,13 @@ namespace XamlBrewer.Uwp.Controls
     public class RingSegment : CompositionPathHost
     {
         public static readonly DependencyProperty CenterPointXProperty =
-            DependencyProperty.Register(nameof(CenterPointX), typeof(int), typeof(RingSegment), new PropertyMetadata(0, Render));
+            DependencyProperty.Register(nameof(CenterPointX), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, Render));
 
         public static readonly DependencyProperty CenterPointYProperty =
-            DependencyProperty.Register(nameof(CenterPointY), typeof(int), typeof(RingSegment), new PropertyMetadata(0, Render));
+            DependencyProperty.Register(nameof(CenterPointY), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, Render));
 
         public static readonly DependencyProperty RadiusProperty =
-            DependencyProperty.Register(nameof(Radius), typeof(int), typeof(RingSegment), new PropertyMetadata(0, Render));
+            DependencyProperty.Register(nameof(Radius), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, Render));
 
         public static readonly DependencyProperty StartAngleProperty =
             DependencyProperty.Register(nameof(StartAngle), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, Render));
@@ -29,21 +29,21 @@ namespace XamlBrewer.Uwp.Controls
 
         private const double Degrees2Radians = Math.PI / 180;
 
-        public int CenterPointX
+        public double CenterPointX
         {
-            get { return (int)GetValue(CenterPointXProperty); }
+            get { return (double)GetValue(CenterPointXProperty); }
             set { SetValue(CenterPointXProperty, value); }
         }
 
-        public int CenterPointY
+        public double CenterPointY
         {
-            get { return (int)GetValue(CenterPointYProperty); }
+            get { return (double)GetValue(CenterPointYProperty); }
             set { SetValue(CenterPointYProperty, value); }
         }
 
-        public int Radius
+        public double Radius
         {
-            get { return (int)GetValue(RadiusProperty); }
+            get { return (double)GetValue(RadiusProperty); }
             set { SetValue(RadiusProperty, value); }
         }
 
@@ -89,6 +89,14 @@ namespace XamlBrewer.Uwp.Controls
             var root = Container.GetVisual();
             var compositor = Window.Current.Compositor;
             var canvasPathBuilder = new CanvasPathBuilder(new CanvasDevice());
+            if (IsStrokeRounded)
+            {
+                canvasPathBuilder.SetSegmentOptions(CanvasFigureSegmentOptions.ForceRoundLineJoin);
+            }
+            else
+            {
+                canvasPathBuilder.SetSegmentOptions(CanvasFigureSegmentOptions.None);
+            }
 
             // Figure
             if (IsPie)
@@ -98,17 +106,19 @@ namespace XamlBrewer.Uwp.Controls
             }
             else
             {
-                StartPointX = (int)(Radius * Math.Cos(StartAngle * Degrees2Radians) + CenterPointX);
-                StartPointY = (int)(Radius * Math.Sin(StartAngle * Degrees2Radians) + CenterPointY);
+                StartPointX = Radius * Math.Cos(StartAngle * Degrees2Radians) + CenterPointX;
+                StartPointY = Radius * Math.Sin(StartAngle * Degrees2Radians) + CenterPointY;
             }
 
-            canvasPathBuilder.BeginFigure(new Vector2(StartPointX, StartPointY));
+            canvasPathBuilder.BeginFigure(new Vector2((float)StartPointX, (float)StartPointY));
+
             canvasPathBuilder.AddArc(
-                new Vector2(CenterPointX, CenterPointY),
-                Radius,
-                Radius,
+                new Vector2((float)CenterPointX, (float)CenterPointY),
+                (float)Radius,
+                (float)Radius,
                 (float)(StartAngle * Degrees2Radians),
                 (float)(SweepAngle * Degrees2Radians));
+
             canvasPathBuilder.EndFigure(IsClosed || IsPie ? CanvasFigureLoop.Closed : CanvasFigureLoop.Open);
 
             // Path
