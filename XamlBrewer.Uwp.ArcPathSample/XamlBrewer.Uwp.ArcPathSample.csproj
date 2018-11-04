@@ -121,6 +121,9 @@
     <Compile Include="Views\CircleSegmentPage.xaml.cs">
       <DependentUpon>CircleSegmentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SquaresPage.xaml.cs">
+      <DependentUpon>SquaresPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Win2DPage.xaml.cs">
       <DependentUpon>Win2DPage.xaml</DependentUpon>
     </Compile>
@@ -180,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\SquaresPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Win2DPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -203,6 +210,9 @@
     </PackageReference>
     <PackageReference Include="Win2D.uwp">
       <Version>1.23.0</Version>
+    </PackageReference>
+    <PackageReference Include="XamlBrewer.Uwp.SquareOfSquares">
+      <Version>1.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
