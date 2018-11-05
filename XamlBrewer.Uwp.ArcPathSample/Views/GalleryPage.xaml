@@ -1,0 +1,148 @@
+﻿<Page x:Class="XamlBrewer.Uwp.ArcPathSample.GalleryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:controls="using:XamlBrewer.Uwp.Controls"
+      mc:Ignorable="d"
+      Foreground="{StaticResource PageForegroundBrush}"
+      FontFamily="Segoe UI">
+
+    <Grid Background="Transparent"
+          Padding="48 34 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="74" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="74" />
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Foreground="{StaticResource PageTitleBrush}"
+                   FontSize="48"
+                   FontWeight="Light"
+                   HorizontalAlignment="Left"
+                   Margin="6 0 0 0"
+                   TextLineBounds="TrimToCapHeight"
+                   FontFamily="Segoe UI">
+                <Run Text="Gallery" />
+        </TextBlock>
+        <Path Data="{StaticResource PacmanIcon}"
+              Fill="{StaticResource PageTitleBrush}"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Right"
+              Height="48"
+              Width="48"
+              Margin="0 0 20 0"
+              Stretch="Uniform" />
+
+        <!-- Main Beef -->
+        <Grid Margin="0 0 48 33"
+              Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid ColumnSpacing="20"
+                  Grid.Row="1"
+                  Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <controls:RingSegment Radius="100"
+                                          IsPie="True"
+                                          CenterPointX="200"
+                                          CenterPointY="200"
+                                          StartAngle="-45"
+                                          SweepAngle="90"
+                                          Fill="Maroon" />
+                    <controls:RingSegment Radius="100"
+                                          IsPie="True"
+                                          CenterPointX="180"
+                                          CenterPointY="200"
+                                          StartAngle="45"
+                                          SweepAngle="270"
+                                          Fill="Silver" />
+                    <controls:RingSegment Radius="100"
+                                          IsPie="True"
+                                          CenterPointX="180"
+                                          CenterPointY="200"
+                                          StartAngle="135"
+                                          SweepAngle="90"
+                                          Fill="Black" />
+                    <controls:RingSegment Radius="100"
+                                          IsPie="True"
+                                          CenterPointX="180"
+                                          CenterPointY="200"
+                                          StartAngle="225"
+                                          SweepAngle="90"
+                                          Fill="RoyalBlue" />
+                </Grid>
+                <Grid Grid.Column="1">
+                    <controls:RingSegment Radius="100"
+                                          CenterPointX="200"
+                                          CenterPointY="200"
+                                          StrokeThickness="30"
+                                          IsStrokeRounded="True"
+                                          StartAngle="135"
+                                          SweepAngle="270" />
+                    <controls:RingSegment Radius="100"
+                                          CenterPointX="200"
+                                          CenterPointY="200"
+                                          StrokeThickness="28"
+                                          IsStrokeRounded="True"
+                                          Stroke="Maroon"
+                                          StartAngle="135"
+                                          SweepAngle="180" />
+                </Grid>
+                <Grid Grid.Column="2">
+                    <controls:RingSegment Radius="70"
+                                          CenterPointX="200"
+                                          CenterPointY="200"
+                                          Stroke="Maroon"
+                                          Fill="Maroon"
+                                          StrokeThickness="90"
+                                          StartAngle="0"
+                                          SweepAngle="120" />
+                    <controls:RingSegment Radius="100"
+                                          CenterPointX="200"
+                                          CenterPointY="200"
+                                          StrokeThickness="30"
+                                          StartAngle="120"
+                                          SweepAngle="120" />
+                    <controls:RingSegment Radius="100"
+                                          CenterPointX="200"
+                                          CenterPointY="200"
+                                          StrokeThickness="30"
+                                          Stroke="RoyalBlue"
+                                          StartAngle="240"
+                                          SweepAngle="120" />
+                    <controls:RingSegment Radius="70"
+                                          CenterPointX="200"
+                                          CenterPointY="200"
+                                          StrokeThickness="30"
+                                          Stroke="Silver"
+                                          StartAngle="120"
+                                          SweepAngle="180" />
+                    <controls:RingSegment Radius="70"
+                                          CenterPointX="200"
+                                          CenterPointY="200"
+                                          StrokeThickness="30"
+                                          Stroke="Gold"
+                                          StartAngle="300"
+                                          SweepAngle="60" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
