@@ -50,6 +50,9 @@
                 <Run>* using {x:Bind} against a XAML ArcSegment, and</Run>
                 <LineBreak />
                 <Run>* {Binding} to a user control hosting Win2D and Composition. </Run>
+                <LineBreak />
+                <LineBreak />
+                <Run>It also demonstrates how to build a user control for circle segments and pie shapes.</Run>
             </TextBlock>
         </Grid>
     </Grid>

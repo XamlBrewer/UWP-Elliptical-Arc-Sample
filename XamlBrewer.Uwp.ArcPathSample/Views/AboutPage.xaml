@@ -31,7 +31,7 @@
               Width="48"
               Margin="0 0 20 0"
               Stretch="Uniform" />
-        
+
         <Grid Margin="0 0 48 33"
               Grid.Row="1">
             <Grid.RowDefinitions>
@@ -43,18 +43,34 @@
                        Foreground="{StaticResource PageForegroundBrush}"
                        FontSize="20"
                        Grid.Row="1"
-                       Margin="0">
-            <Run>This app shows two ways to draw and change an elliptical arc in UWP: </Run>
-            <LineBreak />
-            <Run>* using {x:Bind} against a XAML ArcSegment, and</Run>
-            <LineBreak />
-            <Run>* {Binding} to a user control hosting Win2D and Composition. </Run>
-            <LineBreak />
-            <LineBreak />
-            <LineBreak />
-            <Run>Background image designed by </Run>
-            <Hyperlink NavigateUri="http://www.freepik.com">Harryarts / Freepik</Hyperlink>
-            <Run>.</Run>
+                       Margin="0"
+                       FontFamily="Segoe UI">
+                <Run>This app shows two ways to draw and change an elliptical arc in UWP: </Run>
+                <LineBreak />
+                <Run>* using {x:Bind} against a XAML ArcSegment, and</Run>
+                <LineBreak />
+                <Run>* {Binding} to a user control hosting Win2D and Composition. </Run>
+                <LineBreak />
+                <LineBreak />
+                <Run>It also demonstrates how to build a user control for circle segments and pie shapes.</Run>
+                <LineBreak />
+                <LineBreak />
+                <LineBreak />
+                <Run>Background image designed by </Run>
+                <Hyperlink NavigateUri="http://www.freepik.com">Harryarts / Freepik</Hyperlink>
+                <Run>.</Run>
+                <LineBreak />
+                <Run>'above' and 'middle' icons by </Run>
+                <Hyperlink NavigateUri="http://www.thenounproject.com">Tomasz Pasternak from the Noun Project</Hyperlink>
+                <Run>.</Run>
+                <LineBreak />
+                <Run>'donut chart' icon by </Run>
+                <Hyperlink NavigateUri="http://www.thenounproject.com">Gregor Cresnar from the Noun Project</Hyperlink>
+                <Run>.</Run>
+                <LineBreak />
+                <Run>'game' icon by </Run>
+                <Hyperlink NavigateUri="http://www.thenounproject.com">Enshia from the Noun Project</Hyperlink>
+                <Run>.</Run>                
             </TextBlock>
         </Grid>
     </Grid>
