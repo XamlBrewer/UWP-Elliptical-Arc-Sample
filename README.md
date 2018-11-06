@@ -9,4 +9,6 @@ Demonstrates how to build a user control for circle segments and pie shapes.
 
 ![Screenshot](Assets/Composition.png?raw=true)
 
-![Screenshot](Assets/RingSegment.png?raw=true)
+![Screenshot](Assets/CircleSegment.png?raw=true)
+
+![Screenshot](Assets/Gallery.png?raw=true)
