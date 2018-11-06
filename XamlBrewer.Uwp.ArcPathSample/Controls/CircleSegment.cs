@@ -7,25 +7,25 @@ using Windows.UI.Xaml;
 
 namespace XamlBrewer.Uwp.Controls
 {
-    public class RingSegment : CompositionPathHost
+    public class CircleSegment : CompositionPathHost
     {
         public static readonly DependencyProperty CenterPointXProperty =
-            DependencyProperty.Register(nameof(CenterPointX), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, Render));
+            DependencyProperty.Register(nameof(CenterPointX), typeof(double), typeof(CircleSegment), new PropertyMetadata(0d, Render));
 
         public static readonly DependencyProperty CenterPointYProperty =
-            DependencyProperty.Register(nameof(CenterPointY), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, Render));
+            DependencyProperty.Register(nameof(CenterPointY), typeof(double), typeof(CircleSegment), new PropertyMetadata(0d, Render));
 
         public static readonly DependencyProperty RadiusProperty =
-            DependencyProperty.Register(nameof(Radius), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, Render));
+            DependencyProperty.Register(nameof(Radius), typeof(double), typeof(CircleSegment), new PropertyMetadata(0d, Render));
 
         public static readonly DependencyProperty StartAngleProperty =
-            DependencyProperty.Register(nameof(StartAngle), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, Render));
+            DependencyProperty.Register(nameof(StartAngle), typeof(double), typeof(CircleSegment), new PropertyMetadata(0d, Render));
 
         public static readonly DependencyProperty SweepAngleProperty =
-            DependencyProperty.Register(nameof(SweepAngle), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, Render));
+            DependencyProperty.Register(nameof(SweepAngle), typeof(double), typeof(CircleSegment), new PropertyMetadata(0d, Render));
 
         public static readonly DependencyProperty IsPieProperty =
-            DependencyProperty.Register(nameof(IsPie), typeof(bool), typeof(RingSegment), new PropertyMetadata(false, Render));
+            DependencyProperty.Register(nameof(IsPie), typeof(bool), typeof(CircleSegment), new PropertyMetadata(false, Render));
 
         private const double Degrees2Radians = Math.PI / 180;
 
@@ -65,23 +65,23 @@ namespace XamlBrewer.Uwp.Controls
             set { SetValue(IsPieProperty, value); }
         }
 
-        public RingSegment()
+        public CircleSegment()
         {
             this.InitializeComponent();
 
-            Loaded += RingSegment_Loaded;
-            Unloaded += RingSegment_Unloaded;
+            Loaded += CircleSegment_Loaded;
+            Unloaded += CircleSegment_Unloaded;
         }
 
-        private void RingSegment_Loaded(object sender, RoutedEventArgs e)
+        private void CircleSegment_Loaded(object sender, RoutedEventArgs e)
         {
             Render(this, null);
         }
 
-        private void RingSegment_Unloaded(object sender, RoutedEventArgs e)
+        private void CircleSegment_Unloaded(object sender, RoutedEventArgs e)
         {
-            Loaded -= RingSegment_Loaded;
-            Unloaded -= RingSegment_Unloaded;
+            Loaded -= CircleSegment_Loaded;
+            Unloaded -= CircleSegment_Unloaded;
         }
 
         protected override void Render()

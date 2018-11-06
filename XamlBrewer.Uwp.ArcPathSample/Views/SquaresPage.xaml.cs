@@ -19,7 +19,7 @@ namespace XamlBrewer.Uwp.ArcPathSample
             var random = new Random((int)DateTime.Now.Ticks);
             foreach (var square in Squares.Squares)
             {
-                var segment = new RingSegment()
+                var segment = new CircleSegment()
                 {
                     Height = square.ActualHeight,
                     Width = square.ActualWidth,

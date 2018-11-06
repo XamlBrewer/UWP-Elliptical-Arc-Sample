@@ -24,7 +24,7 @@
                    Margin="6 0 0 0"
                    TextLineBounds="TrimToCapHeight"
                    FontFamily="Segoe UI">
-                <Run Text="Ring Segment Control" />
+                <Run Text="Circle Segment Control" />
         </TextBlock>
         <Path Data="{StaticResource DonutIcon}"
               Fill="{StaticResource PageTitleBrush}"
@@ -61,7 +61,7 @@
                 <Grid Background="{StaticResource LighteningBrush}"
                       Height="400"
                       Width="400">
-                    <controls:RingSegment x:Name="RingSegment"
+                    <controls:CircleSegment x:Name="CircleSegment"
                                           Radius="100"
                                           IsPie="True"
                                           CenterPointX="200"
@@ -74,38 +74,38 @@
                 <StackPanel VerticalAlignment="Top"
                             Grid.Column="1">
                     <Slider Header="Centerpoint X"
-                            Value="{Binding CenterPointX, ElementName=RingSegment, Mode=TwoWay}"
+                            Value="{Binding CenterPointX, ElementName=CircleSegment, Mode=TwoWay}"
                             Maximum="400" />
                     <Slider Header="Radius"
-                            Value="{Binding Radius, ElementName=RingSegment, Mode=TwoWay}"
+                            Value="{Binding Radius, ElementName=CircleSegment, Mode=TwoWay}"
                             Maximum="200"
                             FontFamily="Segoe UI" />
                     <Slider Header="Start angle"
-                            Value="{Binding StartAngle, ElementName=RingSegment, Mode=TwoWay}"
+                            Value="{Binding StartAngle, ElementName=CircleSegment, Mode=TwoWay}"
                             Maximum="360" />
                     <ToggleSwitch Header="Closed"
-                                  IsOn="{Binding IsClosed, ElementName=RingSegment, Mode=TwoWay}"
+                                  IsOn="{Binding IsClosed, ElementName=CircleSegment, Mode=TwoWay}"
                                   OnContent="Yes"
                                   OffContent="No" />
                     <ToggleSwitch Header="Rounded Stroke"
-                                  IsOn="{Binding IsStrokeRounded, ElementName=RingSegment, Mode=TwoWay}"
+                                  IsOn="{Binding IsStrokeRounded, ElementName=CircleSegment, Mode=TwoWay}"
                                   OnContent="Yes"
                                   OffContent="No" />
                 </StackPanel>
                 <StackPanel VerticalAlignment="Top"
                             Grid.Column="2">
                     <Slider Header="Centerpoint Y"
-                            Value="{Binding CenterPointY, ElementName=RingSegment, Mode=TwoWay}"
+                            Value="{Binding CenterPointY, ElementName=CircleSegment, Mode=TwoWay}"
                             Maximum="400" />
                     <Slider Header="Stroke Thickness"
-                            Value="{Binding StrokeThickness, ElementName=RingSegment, Mode=TwoWay}"
+                            Value="{Binding StrokeThickness, ElementName=CircleSegment, Mode=TwoWay}"
                             Maximum="40"
                             StepFrequency=".5" />
                     <Slider Header="Sweep angle"
-                            Value="{Binding SweepAngle, ElementName=RingSegment, Mode=TwoWay}"
+                            Value="{Binding SweepAngle, ElementName=CircleSegment, Mode=TwoWay}"
                             Maximum="360" />
                     <ToggleSwitch Header="Pie"
-                                  IsOn="{Binding IsPie, ElementName=RingSegment, Mode=TwoWay}"
+                                  IsOn="{Binding IsPie, ElementName=CircleSegment, Mode=TwoWay}"
                                   OnContent="Yes"
                                   OffContent="No" />
                 </StackPanel>

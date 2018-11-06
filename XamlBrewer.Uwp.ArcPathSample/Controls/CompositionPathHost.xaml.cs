@@ -7,25 +7,25 @@ namespace XamlBrewer.Uwp.Controls
     public abstract partial class CompositionPathHost : UserControl
     {
         public static readonly DependencyProperty StartPointXProperty =
-            DependencyProperty.Register(nameof(StartPointX), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, new PropertyChangedCallback(Render)));
+            DependencyProperty.Register(nameof(StartPointX), typeof(double), typeof(CompositionPathHost), new PropertyMetadata(0d, new PropertyChangedCallback(Render)));
 
         public static readonly DependencyProperty StartPointYProperty =
-            DependencyProperty.Register(nameof(StartPointY), typeof(double), typeof(RingSegment), new PropertyMetadata(0d, Render));
+            DependencyProperty.Register(nameof(StartPointY), typeof(double), typeof(CompositionPathHost), new PropertyMetadata(0d, Render));
 
         public static readonly DependencyProperty StrokeThicknessProperty =
-            DependencyProperty.Register(nameof(StrokeThickness), typeof(double), typeof(RingSegment), new PropertyMetadata(1.0, Render));
+            DependencyProperty.Register(nameof(StrokeThickness), typeof(double), typeof(CompositionPathHost), new PropertyMetadata(1.0, Render));
 
         public static readonly DependencyProperty StrokeProperty =
-            DependencyProperty.Register(nameof(Stroke), typeof(Color), typeof(RingSegment), new PropertyMetadata((Color)Application.Current.Resources["SystemAccentColor"], Render));
+            DependencyProperty.Register(nameof(Stroke), typeof(Color), typeof(CompositionPathHost), new PropertyMetadata((Color)Application.Current.Resources["SystemAccentColor"], Render));
 
         public static readonly DependencyProperty FillProperty =
-            DependencyProperty.Register(nameof(Fill), typeof(Color), typeof(RingSegment), new PropertyMetadata(Colors.Transparent, Render));
+            DependencyProperty.Register(nameof(Fill), typeof(Color), typeof(CompositionPathHost), new PropertyMetadata(Colors.Transparent, Render));
 
         public static readonly DependencyProperty IsClosedProperty =
-            DependencyProperty.Register(nameof(IsClosed), typeof(bool), typeof(RingSegment), new PropertyMetadata(false, Render));
+            DependencyProperty.Register(nameof(IsClosed), typeof(bool), typeof(CompositionPathHost), new PropertyMetadata(false, Render));
 
         public static readonly DependencyProperty IsStrokeRoundedProperty =
-            DependencyProperty.Register(nameof(IsStrokeRounded), typeof(bool), typeof(RingSegment), new PropertyMetadata(false, Render));
+            DependencyProperty.Register(nameof(IsStrokeRounded), typeof(bool), typeof(CompositionPathHost), new PropertyMetadata(false, Render));
 
         public double StartPointX
         {

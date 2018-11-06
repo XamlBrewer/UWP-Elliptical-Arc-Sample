@@ -101,7 +101,7 @@
     <Compile Include="Controls\EllipticalArc.xaml.cs">
       <DependentUpon>EllipticalArc.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\RingSegment.cs" />
+    <Compile Include="Controls\CircleSegment.cs" />
     <Compile Include="Controls\UIElementExtensions.cs" />
     <Compile Include="Mvvm\BindableBase.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
