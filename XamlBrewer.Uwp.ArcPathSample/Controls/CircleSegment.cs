@@ -65,25 +65,6 @@ namespace XamlBrewer.Uwp.Controls
             set { SetValue(IsPieProperty, value); }
         }
 
-        public CircleSegment()
-        {
-            this.InitializeComponent();
-
-            Loaded += CircleSegment_Loaded;
-            Unloaded += CircleSegment_Unloaded;
-        }
-
-        private void CircleSegment_Loaded(object sender, RoutedEventArgs e)
-        {
-            Render(this, null);
-        }
-
-        private void CircleSegment_Unloaded(object sender, RoutedEventArgs e)
-        {
-            Loaded -= CircleSegment_Loaded;
-            Unloaded -= CircleSegment_Unloaded;
-        }
-
         protected override void Render()
         {
             var root = Container.GetVisual();

@@ -74,6 +74,20 @@ namespace XamlBrewer.Uwp.Controls
         public CompositionPathHost()
         {
             this.InitializeComponent();
+
+            Loaded += CompositionPathHost_Loaded;
+            Unloaded += CompositionPathHost_Unloaded;
+        }
+
+        private void CompositionPathHost_Loaded(object sender, RoutedEventArgs e)
+        {
+            Render(this, null);
+        }
+
+        private void CompositionPathHost_Unloaded(object sender, RoutedEventArgs e)
+        {
+            Loaded -= CompositionPathHost_Loaded;
+            Unloaded -= CompositionPathHost_Unloaded;
         }
 
         protected static void Render(DependencyObject d, DependencyPropertyChangedEventArgs e)
